@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import org.junit.runner.RunWith;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,10 +17,11 @@ public class stepDefinition {
         System.out.println("Navigated to landing page");
     }
 
-    @When("^User login to application with username and password$")
-    public void user_login_to_application_with_username_and_password() throws Throwable {
-    	
-    	System.out.println("Loginned successfully");
+    
+    @When("^User login to application with \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void user_login_to_application_with_something_and_something(String strArg1, String strArg2) throws Throwable {
+        System.out.println(strArg1);
+        System.out.println(strArg2);
     }
 
     @Then("^Home page is populated$")
@@ -28,10 +30,12 @@ public class stepDefinition {
         
     }
 
-    @And("^Cards are displayed$")
-    public void cards_are_displayed() throws Throwable {
-    	System.out.println("Validated cards");
-        
+    @Then("^Cards displayed \"([^\"]*)\"$")
+    public void cards_displayed(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+    	System.out.println(arg1);
     }
+        
+    
 
 }
